@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BuyButton } from "@/components/buy-button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ImageGallery } from "@/components/image-gallery";
@@ -72,9 +73,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col gap-3">
-            <Button size="lg" className="w-full text-base py-6">
-              Buy Now &mdash; $2,599
-            </Button>
+            <BuyButton />
             <Button variant="outline" size="lg" className="w-full">
               Make an Offer
             </Button>
