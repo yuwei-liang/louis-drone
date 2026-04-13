@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function POST() {
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+      httpClient: Stripe.createFetchHttpClient(),
+    });
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: [
@@ -32,6 +34,7 @@ export async function POST() {
 
     return NextResponse.json({ url: session.url });
   } catch (err) {
+    console.error("Stripe checkout error:", err);
     const message = err instanceof Error ? err.message : "Unknown error";
     return NextResponse.json({ error: message }, { status: 500 });
   }
