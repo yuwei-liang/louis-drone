@@ -84,13 +84,15 @@ export default function Home() {
 
           <div className="flex flex-col gap-3">
             <BuyButton />
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full border-neon-magenta/40 text-neon-magenta hover:bg-neon-magenta/10 hover:text-neon-magenta cyber-clip font-mono uppercase tracking-wider"
-            >
-              Make an Offer
-            </Button>
+            <a href="mailto:llshopiness@gmail.com?subject=Offer%20for%20X8%20Cine-Lifter&body=Hi%2C%20I%27d%20like%20to%20make%20an%20offer%20on%20the%20X8%20Cine-Lifter.%0A%0AMy%20offer%3A%20%24%0A%0AThanks!">
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full border-neon-magenta/40 text-neon-magenta hover:bg-neon-magenta/10 hover:text-neon-magenta cyber-clip font-mono uppercase tracking-wider"
+              >
+                Make an Offer
+              </Button>
+            </a>
           </div>
 
           {/* Stat boxes */}
