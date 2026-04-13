@@ -9,7 +9,7 @@ export default function SuccessPage() {
         shipment. You&apos;ll receive a confirmation email shortly.
       </p>
       <p className="text-muted-foreground mt-2 text-sm">
-        Questions? Reach out at hello@dronedontcare.com
+        Questions? Reach out at llshopiness@gmail.com
       </p>
       <a href="/">
         <Button className="mt-8">Back to Shop</Button>

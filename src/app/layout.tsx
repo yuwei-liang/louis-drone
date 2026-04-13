@@ -199,7 +199,7 @@ export default function RootLayout({
               </div>
               <div className="text-sm text-muted-foreground">
                 <p>Questions? Reach out:</p>
-                <p className="mt-1 text-foreground">hello@dronedontcare.com</p>
+                <p className="mt-1 text-foreground">llshopiness@gmail.com</p>
               </div>
             </div>
             <p className="text-xs text-muted-foreground mt-8">
