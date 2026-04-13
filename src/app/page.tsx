@@ -44,24 +44,34 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Badge variant="secondary">New</Badge>
-              <Badge variant="outline">Custom Build</Badge>
-              <Badge variant="outline">Ready to Fly</Badge>
+              <Badge className="bg-neon-cyan/15 text-neon-cyan border-neon-cyan/30 neon-glow-cyan">
+                New
+              </Badge>
+              <Badge className="bg-neon-magenta/10 text-neon-magenta border-neon-magenta/30">
+                Custom Build
+              </Badge>
+              <Badge className="bg-neon-yellow/10 text-neon-yellow border-neon-yellow/30">
+                Ready to Fly
+              </Badge>
             </div>
-            <h1 className="text-3xl font-bold tracking-tight lg:text-4xl">
-              X8 Cine-Lifter 8&quot; with O4 Air Unit
+            <h1 className="text-3xl font-bold tracking-tight lg:text-4xl font-mono uppercase">
+              <span className="text-neon-cyan neon-glow-cyan">X8</span>{" "}
+              <span className="text-foreground">Cine-Lifter</span>{" "}
+              <span className="text-neon-magenta">8&quot;</span>
+              <span className="block text-lg text-muted-foreground mt-1 tracking-widest normal-case font-sans font-normal">
+                with O4 Air Unit
+              </span>
             </h1>
-            <p className="text-muted-foreground mt-2">
-              Complete custom build &mdash; FPV cinema drone
-            </p>
           </div>
 
           <div className="flex items-baseline gap-3">
-            <span className="text-4xl font-bold font-mono">$2,599</span>
-            <span className="text-muted-foreground text-sm">.00 USD</span>
+            <span className="text-5xl font-bold font-mono text-neon-cyan neon-glow-cyan">
+              $2,599
+            </span>
+            <span className="text-muted-foreground text-sm font-mono">.00 USD</span>
           </div>
 
-          <Separator />
+          <Separator className="bg-neon-cyan/20" />
 
           <p className="text-sm text-muted-foreground leading-relaxed">
             Hand-built X8 cine-lifter designed for smooth, cinematic FPV footage.
@@ -74,30 +84,50 @@ export default function Home() {
 
           <div className="flex flex-col gap-3">
             <BuyButton />
-            <Button variant="outline" size="lg" className="w-full">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full border-neon-magenta/40 text-neon-magenta hover:bg-neon-magenta/10 hover:text-neon-magenta cyber-clip font-mono uppercase tracking-wider"
+            >
               Make an Offer
             </Button>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 text-center mt-2">
-            <div className="rounded-lg border border-border p-3">
-              <p className="text-2xl font-bold font-mono">15</p>
-              <p className="text-xs text-muted-foreground">min flight</p>
+          {/* Stat boxes */}
+          <div className="grid grid-cols-3 gap-3 mt-2">
+            <div className="border border-neon-cyan/20 bg-neon-cyan/5 p-3 text-center relative overflow-hidden">
+              <div className="absolute inset-0 scanline pointer-events-none" />
+              <p className="text-2xl font-bold font-mono text-neon-cyan">15</p>
+              <p className="text-[10px] text-neon-cyan/60 uppercase tracking-widest font-mono mt-1">
+                min flight
+              </p>
             </div>
-            <div className="rounded-lg border border-border p-3">
-              <p className="text-2xl font-bold font-mono">5km</p>
-              <p className="text-xs text-muted-foreground">max range</p>
+            <div className="border border-neon-magenta/20 bg-neon-magenta/5 p-3 text-center relative overflow-hidden">
+              <div className="absolute inset-0 scanline pointer-events-none" />
+              <p className="text-2xl font-bold font-mono text-neon-magenta">5km</p>
+              <p className="text-[10px] text-neon-magenta/60 uppercase tracking-widest font-mono mt-1">
+                max range
+              </p>
             </div>
-            <div className="rounded-lg border border-border p-3">
-              <p className="text-2xl font-bold font-mono">2kg</p>
-              <p className="text-xs text-muted-foreground">weight</p>
+            <div className="border border-neon-yellow/20 bg-neon-yellow/5 p-3 text-center relative overflow-hidden">
+              <div className="absolute inset-0 scanline pointer-events-none" />
+              <p className="text-2xl font-bold font-mono text-neon-yellow">2kg</p>
+              <p className="text-[10px] text-neon-yellow/60 uppercase tracking-widest font-mono mt-1">
+                weight
+              </p>
             </div>
           </div>
 
-          <div className="text-xs text-muted-foreground space-y-1 mt-2">
-            <p>Free shipping &mdash; 3-day delivery</p>
-            <p>Ships from Irvine, California</p>
-            <p>1-month warranty included</p>
+          <div className="text-xs text-muted-foreground space-y-1 mt-2 font-mono">
+            <p className="flex items-center gap-2">
+              <span className="text-neon-cyan">&#x25B8;</span> Free shipping &mdash; 3-day delivery
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-neon-magenta">&#x25B8;</span> Ships from Irvine, California
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-neon-yellow">&#x25B8;</span> 1-month warranty included
+            </p>
           </div>
         </div>
       </div>
@@ -105,30 +135,40 @@ export default function Home() {
       {/* Specs & details tabs */}
       <div id="specs" className="mt-16">
         <Tabs defaultValue="specs">
-          <TabsList>
-            <TabsTrigger value="specs">Specifications</TabsTrigger>
-            <TabsTrigger value="details">Build Details</TabsTrigger>
-            <TabsTrigger value="shipping">Shipping</TabsTrigger>
+          <TabsList className="bg-background border border-neon-cyan/20">
+            <TabsTrigger value="specs" className="data-[state=active]:bg-neon-cyan/10 data-[state=active]:text-neon-cyan font-mono uppercase tracking-wider text-xs">
+              Specifications
+            </TabsTrigger>
+            <TabsTrigger value="details" className="data-[state=active]:bg-neon-magenta/10 data-[state=active]:text-neon-magenta font-mono uppercase tracking-wider text-xs">
+              Build Details
+            </TabsTrigger>
+            <TabsTrigger value="shipping" className="data-[state=active]:bg-neon-yellow/10 data-[state=active]:text-neon-yellow font-mono uppercase tracking-wider text-xs">
+              Shipping
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="specs" className="mt-6">
-            <div className="rounded-lg border border-border overflow-hidden">
+            <div className="border border-neon-cyan/20 overflow-hidden relative">
+              <div className="absolute inset-0 scanline pointer-events-none" />
               {SPECS.map((spec, i) => (
                 <div
                   key={spec.label}
-                  className={`flex justify-between px-4 py-3 text-sm ${
-                    i % 2 === 0 ? "bg-muted/30" : ""
+                  className={`flex justify-between px-4 py-3 text-sm font-mono ${
+                    i % 2 === 0 ? "bg-neon-cyan/[0.03]" : ""
                   }`}
                 >
-                  <span className="text-muted-foreground">{spec.label}</span>
-                  <span className="font-medium">{spec.value}</span>
+                  <span className="text-muted-foreground uppercase tracking-wider text-xs">
+                    {spec.label}
+                  </span>
+                  <span className="font-medium text-neon-cyan">{spec.value}</span>
                 </div>
               ))}
             </div>
           </TabsContent>
 
           <TabsContent value="details" className="mt-6">
-            <div className="max-w-none text-sm text-muted-foreground space-y-4">
+            <div className="max-w-none text-sm text-muted-foreground space-y-4 border border-neon-magenta/20 p-6 relative">
+              <div className="absolute inset-0 scanline pointer-events-none" />
               <p>
                 This is a complete, ready-to-fly X8 cine-lifter build. The X8
                 configuration (8 motors in coaxial pairs on 4 arms) delivers
@@ -149,13 +189,14 @@ export default function Home() {
           </TabsContent>
 
           <TabsContent value="shipping" className="mt-6">
-            <div className="text-sm text-muted-foreground space-y-4">
+            <div className="text-sm text-muted-foreground space-y-4 border border-neon-yellow/20 p-6 relative">
+              <div className="absolute inset-0 scanline pointer-events-none" />
               <p>
-                <strong className="text-foreground">Free 3-day delivery</strong>{" "}
+                <strong className="text-neon-yellow">Free 3-day delivery</strong>{" "}
                 to anywhere in the continental United States.
               </p>
               <p>
-                <strong className="text-foreground">Free local pickup</strong>{" "}
+                <strong className="text-neon-yellow">Free local pickup</strong>{" "}
                 available in Irvine, California (92602).
               </p>
               <p>

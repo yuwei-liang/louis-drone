@@ -14,7 +14,8 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
   return (
     <div className="flex flex-col gap-3">
       {/* Main image */}
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-border bg-muted/20">
+      <div className="relative aspect-square w-full overflow-hidden border border-neon-cyan/20 bg-black/50">
+        <div className="absolute inset-0 scanline pointer-events-none z-10" />
         <Image
           src={images[selected].src}
           alt={images[selected].alt}
@@ -31,10 +32,10 @@ export function ImageGallery({ images }: { images: GalleryImage[] }) {
           <button
             key={img.src}
             onClick={() => setSelected(i)}
-            className={`relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border transition-all ${
+            className={`relative h-16 w-16 flex-shrink-0 overflow-hidden border transition-all ${
               i === selected
-                ? "border-foreground ring-1 ring-foreground"
-                : "border-border opacity-60 hover:opacity-100"
+                ? "border-neon-cyan box-glow-cyan"
+                : "border-neon-cyan/20 opacity-50 hover:opacity-80 hover:border-neon-cyan/50"
             }`}
           >
             <Image

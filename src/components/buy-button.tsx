@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 export function BuyButton() {
@@ -20,13 +19,12 @@ export function BuyButton() {
   }
 
   return (
-    <Button
-      size="lg"
-      className="w-full text-base py-6"
+    <button
       onClick={handleCheckout}
       disabled={loading}
+      className="w-full py-4 text-base font-bold font-mono uppercase tracking-widest bg-gradient-to-r from-neon-cyan to-[oklch(0.7_0.15_220)] text-black cyber-clip transition-all hover:shadow-[0_0_20px_var(--neon-cyan)] disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      {loading ? "Redirecting to checkout..." : "Buy Now \u2014 $2,599"}
-    </Button>
+      {loading ? "Redirecting..." : "Buy Now \u2014 $2,599"}
+    </button>
   );
 }
