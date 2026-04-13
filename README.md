@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DroneDontCare
 
-## Getting Started
+Single-product storefront for the X8 Cine-Lifter FPV drone. Built with Next.js, Tailwind CSS, and Stripe.
 
-First, run the development server:
+**Live site:** https://dronedontcare.com
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Pull environment variables from Vercel
+vercel env pull .env.local
+
+# Start dev server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 to see the site locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Managing the Site with Claude Code
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can use Claude Code (the AI CLI tool) to make changes to this site without writing code yourself. Here's how:
 
-## Learn More
+### Setup
 
-To learn more about Next.js, take a look at the following resources:
+1. Install Claude Code: https://claude.ai/claude-code
+2. Clone this repo and `cd` into it
+3. Run `claude` to start a session
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Common Tasks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Just tell Claude what you want in plain English:
 
-## Deploy on Vercel
+| What you want | What to say |
+|---|---|
+| Change the price | "Change the drone price to $2,799" |
+| Update product description | "Update the description to mention the new motor upgrade" |
+| Add/remove a product image | "Add this image to the gallery" (drag image into the chat) |
+| Change contact email | "Change the support email to newemail@gmail.com" |
+| Update shipping info | "Change shipping to 5-day delivery" |
+| Change spec values | "Update the max flight time to 18 minutes" |
+| Edit the page text | "Change the warranty from 1 month to 3 months" |
+| Deploy changes | "Push and deploy to production" |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deploying Changes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+After making changes, tell Claude:
+
+```
+push to github and deploy
+```
+
+This will commit your changes, push to GitHub, and deploy to Vercel. The live site updates in about 30 seconds.
+
+### Environment Variables
+
+Stripe keys and other secrets are stored in Vercel (not in code). To manage them:
+
+```
+vercel env ls          # List all env vars
+vercel env pull        # Pull to local .env.local for dev
+```
+
+Never commit `.env.local` — it's in `.gitignore`.
+
+## Project Structure
+
+```
+src/
+  app/
+    page.tsx           # Main product page
+    layout.tsx         # Header, footer, SEO metadata
+    globals.css        # Cyberpunk theme colors and utilities
+    api/checkout/      # Stripe checkout endpoint
+    success/           # Post-purchase confirmation page
+  components/
+    buy-button.tsx     # Stripe checkout button
+    image-gallery.tsx  # Product image gallery
+    ui/                # shadcn/ui components
+public/
+  images/              # Product photos
+```
+
+## Key Accounts
+
+| Service | Purpose | Dashboard |
+|---|---|---|
+| **Vercel** | Hosting & deploys | https://vercel.com/dashboard |
+| **Stripe** | Payments | https://dashboard.stripe.com |
+| **GoDaddy** | Domain (dronedontcare.com) | https://dcc.godaddy.com |
+| **GitHub** | Code repo | https://github.com/yuwei-liang/louis-drone |
+
+## Tech Stack
+
+- **Next.js 16** — React framework
+- **Tailwind CSS** — Styling
+- **shadcn/ui** — UI components
+- **Stripe Checkout** — Payment processing
+- **Vercel** — Hosting (auto-deploys from GitHub)
