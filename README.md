@@ -8,16 +8,18 @@ Single-product storefront for the X8 Cine-Lifter FPV drone. Built with Next.js, 
 
 ```bash
 # Install dependencies
-pnpm install
+npm install
 
-# Pull environment variables from Vercel
-vercel env pull .env.local
+# Set up environment variables (see SETUP.md for details)
+# Place .env.local in the project root
 
 # Start dev server
-pnpm dev
+npm run dev
 ```
 
 Open http://localhost:3000 to see the site locally.
+
+For full onboarding instructions, see [SETUP.md](SETUP.md).
 
 ## Managing the Site with Claude Code
 
